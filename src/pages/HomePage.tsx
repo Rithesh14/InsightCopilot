@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Book, ArrowRight } from 'lucide-react';
+import { Book, ArrowRight, FileText, Brain, Zap } from 'lucide-react';
+import SpotlightCard from '../components/SpotlightCard';
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,12 +15,12 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
       <div className="absolute inset-0 z-0" style={{ 
         background: `
-          radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.4) 0%, transparent 50%)
+          radial-gradient(circle at 20% 50%, rgba(75, 85, 99, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(31, 41, 55, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 40% 80%, rgba(55, 65, 81, 0.15) 0%, transparent 50%)
         `,
         animation: 'backgroundShift 20s ease-in-out infinite'
       }}></div>
@@ -77,6 +78,26 @@ const HomePage = () => {
           <p className="text-white/60 text-sm mt-4">
             Supports PDF, XLSX, JPG, PNG files up to 10MB
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.2)" className="text-white">
+            <FileText className="w-8 h-8 mb-4 text-cyan-400" />
+            <h3 className="text-xl font-semibold mb-2">Document Processing</h3>
+            <p className="text-white/70">Advanced OCR and text extraction for multiple file formats</p>
+          </SpotlightCard>
+
+          <SpotlightCard spotlightColor="rgba(255, 86, 247, 0.2)" className="text-white">
+            <Brain className="w-8 h-8 mb-4 text-fuchsia-400" />
+            <h3 className="text-xl font-semibold mb-2">AI Analysis</h3>
+            <p className="text-white/70">Smart insights and pattern recognition powered by AI</p>
+          </SpotlightCard>
+
+          <SpotlightCard spotlightColor="rgba(255, 171, 0, 0.2)" className="text-white">
+            <Zap className="w-8 h-8 mb-4 text-amber-400" />
+            <h3 className="text-xl font-semibold mb-2">Instant Results</h3>
+            <p className="text-white/70">Real-time processing and immediate insights delivery</p>
+          </SpotlightCard>
         </div>
       </div>
       
